@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="TP6_Grupo_2/DB"/>
+	<classpathentry kind="src" path="TP6_Grupo_2/Entidad"/>
+	<classpathentry kind="src" path="TP6_Grupo_2/Negocio"/>
+	<classpathentry kind="src" path="TP6_Grupo_2/Vista"/>
+	<classpathentry kind="src" path="Main"/>
+	<classpathentry kind="lib" path="C:/Users/Valentín/Desktop/mysql-connector-java-5.1.47/mysql-connector-java-5.1.47-bin.jar"/>
+	<classpathentry kind="output" path="TP6_Grupo_2/bin"/>
+</classpath>

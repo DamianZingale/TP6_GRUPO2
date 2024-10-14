@@ -1,18 +1,9 @@
 package Service;
 
-import daoImplements.UserRepository;
 import modelImplements.Persona;
 
-public class UserService {
+public interface UserService {
 
-	UserRepository dao =new UserRepository() ;
-	Persona usuario;
-	
-	public int daoInsert(Persona usuario){
-		
-		int filaAfectada = dao.insertPerson(usuario);
-		return filaAfectada;
-		
-	}
-	
+	public int daoInsert(Persona usuario);
+	public int existe(String Dni);
 }

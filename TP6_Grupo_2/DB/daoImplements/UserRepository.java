@@ -1,6 +1,8 @@
 package daoImplements;
 
 import java.util.ArrayList;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 import dao.Idao;
@@ -15,7 +17,7 @@ public class UserRepository implements Idao {
 	public int insertPerson(Persona usuario) { //logica agregado personas
 		Persona User = usuario;
 		try {
-		query= "INSERT INTO Personas (DNI, Nombre, Apellido) VALUES ('"+User.getDNI()+"', '"+User.getNombre()+"', '"+User.getApellido()+"')";
+		query= "INSERT INTO Personas (Dni, Nombre, Apellido) VALUES ('"+User.getDNI()+"', '"+User.getNombre()+"', '"+User.getApellido()+"')";
 		db.conexion();
 		Statement st = db.statement();
 		fila = st.executeUpdate(query);
@@ -26,7 +28,31 @@ public class UserRepository implements Idao {
 		return fila;
 	}
 		
-		
+	public int searchPerson(String Dni)
+	{
+		ResultSet fila = null;
+		int filasAfectadas = 0;
+		try {
+			query= "SELECT * FROM Personas WHERE Dni = " + Dni;
+			db.conexion();
+			Statement st = db.statement();
+			fila = st.executeQuery(query);
+			}
+			catch (Exception e) {
+				e.printStackTrace();
+			}
+		try {
+			while(fila.next())
+			{
+				filasAfectadas += 1;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return filasAfectadas;
+	}
+	
 	public int modifyPerson() {//logica modificacion persona
 		int fila= 0;
 		
