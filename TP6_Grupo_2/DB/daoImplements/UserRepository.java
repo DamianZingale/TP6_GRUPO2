@@ -1,6 +1,7 @@
 package daoImplements;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -9,7 +10,6 @@ import dao.Idao;
 import modelImplements.Persona;
 
 public class UserRepository implements Idao {
-	
 	private int fila = 0;
 	private String query ="";
 	DbConection db = new DbConection(); 
@@ -65,13 +65,32 @@ public class UserRepository implements Idao {
 		
 		return fila;
 	}
-	public ArrayList<Persona> PeopleList(){//logica listar personas
-		ArrayList<Persona> lista = new ArrayList<Persona>();
-		
-		
-		return lista;
+	
+	public List<Persona> listPerson(){
+		ResultSet resultado;
+		ArrayList<Persona> personas = new ArrayList <Persona>();
+	
+		try {
+			query = "SELECT * FROM Personas";
+			db.conexion();
+			Statement st = db.statement();
+			resultado = st.executeQuery(query);
+			
+			while(resultado.next()) {
+				personas.add(getPersona(resultado));
+			}
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		return personas;
 	}
-
+	private Persona getPersona(ResultSet resultSet) throws SQLException
+	{
+		String DNI = resultSet.getString("DNI");
+		String nombre = resultSet.getString("Nombre");
+		String apellido = resultSet.getString("Apellido");
+		return new Persona(DNI, nombre, apellido);
+	}
 
 	
 }

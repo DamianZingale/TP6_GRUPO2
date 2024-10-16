@@ -1,6 +1,6 @@
 package dao;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import modelImplements.Persona;
 
@@ -10,6 +10,6 @@ public interface Idao {
 	public int searchPerson(String Dni);
 	public int modifyPerson();
 	public int deletePerson();
-	public ArrayList<Persona> PeopleList(); 
+	public List<Persona> listPerson(); 
 
 }

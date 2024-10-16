@@ -1,5 +1,7 @@
 package ServiceImplements;
 
+import java.util.List;
+
 import Service.UserService;
 import daoImplements.UserRepository;
 import modelImplements.Persona;
@@ -23,4 +25,10 @@ public class UserServiceImp implements UserService {
 		int filaAfectada = dao.searchPerson(Dni);
 		return filaAfectada;
 	}
+
+	@Override
+	public List<Persona> listPerson() {
+		return dao.listPerson();
+	}
+	
 }

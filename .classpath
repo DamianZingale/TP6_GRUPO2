@@ -6,6 +6,6 @@
 	<classpathentry kind="src" path="TP6_Grupo_2/Negocio"/>
 	<classpathentry kind="src" path="TP6_Grupo_2/Vista"/>
 	<classpathentry kind="src" path="Main"/>
-	<classpathentry kind="lib" path="C:/Users/Valentín/Desktop/mysql-connector-java-5.1.47/mysql-connector-java-5.1.47-bin.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files (x86)/MySQL/Connector.J 5.1/mysql-connector-java-5.1.41-bin.jar"/>
 	<classpathentry kind="output" path="TP6_Grupo_2/bin"/>
 </classpath>
