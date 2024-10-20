@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="TP6_Grupo_2/src"/>
+	<classpathentry kind="lib" path="TP6_Grupo_2/jgoodies-forms-1.8.0-sources.jar"/>
+	<classpathentry kind="lib" path="TP6_Grupo_2/jgoodies-forms-1.8.0.jar"/>
+	<classpathentry kind="lib" path="TP6_Grupo_2/miglayout15-swing.jar"/>
+	<classpathentry kind="lib" path="C:/Users/centr/Desktop/CUARTO CUATRIMESTRE (2024)/LABORATORIO DE COMPUTACION IV/9. UNIDAD 6 - conexion a bases de datos/AppConsolaJDBC/AppConsolaJDBC/mysql-connector-java-5.1.47-bin.jar"/>
+	<classpathentry kind="output" path="TP6_Grupo_2/bin"/>
+</classpath>
