@@ -1,10 +1,13 @@
 package daoImpl;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.mysql.jdbc.Connection;
 
 import dao.PersonaDao;
 import entidad.Persona;
@@ -53,7 +56,7 @@ public class PersonaDaoImpl implements PersonaDao{
 		}
 		return filasAfectadas;
 	}
-	public int modifyPerson(Persona usuario) { // lógica para modificar personas
+	public int modifyPerson(Persona usuario) { // lï¿½gica para modificar personas
 	    Persona User = usuario;
 	    int fila = 0; 
 	    try {
@@ -106,6 +109,55 @@ public class PersonaDaoImpl implements PersonaDao{
 	public int modifyPerson() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	public int deletePerson(String dni) {
+	    int filasAfectadas = 0;
+	    Connection conexion = null;
+	    PreparedStatement statement = null;
+	    
+	    try {
+	        // Abro la conexiÃ³n
+	        conexion = (Connection) new Conexion().conexion();
+	        
+	        
+	        conexion.setAutoCommit(false);
+	        
+	        String query = "DELETE FROM Personas WHERE DNI = ?";
+	        statement = conexion.prepareStatement(query);
+	        statement.setString(1, dni);
+	        
+	        filasAfectadas = statement.executeUpdate();
+	        
+	        // Si se eliminaron filas, realiza el commit
+	        if (filasAfectadas > 0) {
+	            conexion.commit();
+	        } else {
+	            
+	            // hacemos un rollback 
+	            conexion.rollback(); 
+	        }
+	    } catch (SQLException e) {
+	        
+	        if (conexion != null) {
+	            try {
+	                conexion.rollback();
+	            } catch (SQLException rollbackEx) {
+	                rollbackEx.printStackTrace(); 
+	            }
+	        }
+	        e.printStackTrace(); 
+	    } finally {
+	        
+	        try {
+	            if (statement != null) statement.close();
+	            if (conexion != null) conexion.close();
+	        } catch (SQLException closeEx) {
+	            closeEx.printStackTrace(); 
+	        }
+	    }
+	    
+	    return filasAfectadas;
 	}
 			
 }

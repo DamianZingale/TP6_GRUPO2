@@ -35,4 +35,8 @@ public class PersonaNegocioImpl  implements PersonaNegocio{
     public int modifyPerson(Persona usuario) {
         return dao.modifyPerson(usuario);
     }
+	@Override
+	public int deletePerson(String dni) {
+	    return dao.deletePerson(dni);
+	}
 }

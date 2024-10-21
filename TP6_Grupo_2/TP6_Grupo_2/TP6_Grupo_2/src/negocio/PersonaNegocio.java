@@ -9,4 +9,6 @@ public interface PersonaNegocio {
 	public int existe(String Dni);
 	public List<Persona>listPerson();
 	int modifyPerson(Persona usuario);
+	public int deletePerson(String dni);
+	
 }
